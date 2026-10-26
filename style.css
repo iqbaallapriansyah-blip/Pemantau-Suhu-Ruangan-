@@ -1,0 +1,275 @@
+:root {
+  --latar: #eef3f6;
+  --permukaan: #ffffff;
+  --teks: #12263a;
+  --teks-redup: #526476;
+  --garis: #d3dde5;
+  --aksen: #0f6e8c;
+  --aksen-gelap: #0b566e;
+  --bahaya: #b42318;
+
+  --dingin: #2563eb;
+  --sejuk: #0e9aa7;
+  --nyaman: #1f9d55;
+  --hangat: #d98a00;
+  --panas: #d92d20;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--latar);
+  color: var(--teks);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.halaman {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px 56px;
+}
+
+.kepala h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+
+.kepala p {
+  margin: 0 0 24px;
+  max-width: 62ch;
+  color: var(--teks-redup);
+}
+
+/* Kartu */
+.kartu {
+  background: var(--permukaan);
+  border: 1px solid var(--garis);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.kartu h2 {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+}
+
+.kartu h3 {
+  margin: 22px 0 10px;
+  font-size: 0.95rem;
+  color: var(--teks-redup);
+  font-weight: 600;
+}
+
+/* Formulir */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.kolom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 200px;
+}
+
+.kolom-suhu {
+  flex: 0 1 140px;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+input {
+  font: inherit;
+  padding: 9px 11px;
+  border: 1px solid var(--garis);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--teks);
+}
+
+input:focus-visible,
+.tombol:focus-visible {
+  outline: 3px solid #8fd0e4;
+  outline-offset: 1px;
+}
+
+.tombol {
+  font: inherit;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.tombol-utama {
+  background: var(--aksen);
+  color: #fff;
+}
+
+.tombol-utama:hover {
+  background: var(--aksen-gelap);
+}
+
+.tombol-sekunder {
+  background: #fff;
+  color: var(--bahaya);
+  border-color: var(--garis);
+}
+
+.tombol-sekunder:hover {
+  border-color: var(--bahaya);
+}
+
+.pesan {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  color: var(--teks-redup);
+}
+
+.pesan.galat {
+  color: var(--bahaya);
+  font-weight: 600;
+}
+
+/* Statistik */
+.statistik {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.statistik div {
+  background: var(--latar);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.statistik dt {
+  font-size: 0.8rem;
+  color: var(--teks-redup);
+}
+
+.statistik dd {
+  margin: 2px 0 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Sebaran kategori */
+.distribusi {
+  display: grid;
+  gap: 8px;
+}
+
+.baris-distribusi {
+  display: grid;
+  grid-template-columns: 70px 1fr 28px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.jalur {
+  height: 12px;
+  background: var(--latar);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.isi-jalur {
+  height: 100%;
+  width: 0;
+  border-radius: 6px;
+}
+
+.jumlah-distribusi {
+  text-align: right;
+  font-weight: 600;
+}
+
+.isi-jalur.kat-dingin { background: var(--dingin); }
+.isi-jalur.kat-sejuk  { background: var(--sejuk); }
+.isi-jalur.kat-nyaman { background: var(--nyaman); }
+.isi-jalur.kat-hangat { background: var(--hangat); }
+.isi-jalur.kat-panas  { background: var(--panas); }
+
+/* Tabel */
+.kepala-tabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.kepala-tabel h2 {
+  margin: 0;
+}
+
+.gulir-tabel {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--garis);
+}
+
+th {
+  font-size: 0.85rem;
+  color: var(--teks-redup);
+}
+
+.kosong {
+  text-align: center;
+  color: var(--teks-redup);
+  padding: 24px 12px;
+}
+
+/* Lencana kategori */
+.lencana {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.lencana.kat-dingin { background: #dbe7ff; color: #1b3f9e; }
+.lencana.kat-sejuk  { background: #d4f1f4; color: #075a63; }
+.lencana.kat-nyaman { background: #d9f3e3; color: #0c5a2c; }
+.lencana.kat-hangat { background: #fdf0c8; color: #6b4b00; }
+.lencana.kat-panas  { background: #fcd9d6; color: #8a1c13; }
+
+@media (max-width: 480px) {
+  .kepala h1 {
+    font-size: 1.6rem;
+  }
+
+  .tombol-utama {
+    width: 100%;
+  }
+}
