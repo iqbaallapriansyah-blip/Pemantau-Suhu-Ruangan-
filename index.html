@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemantau Suhu Ruangan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="halaman">
+
+    <header class="kepala">
+      <h1>Pemantau Suhu Ruangan</h1>
+      <p>Masukkan nama ruangan dan suhunya dalam °C (0 sampai 50). Program menentukan kategori suhu tiap ruangan, memberi saran, lalu menghitung statistiknya.</p>
+    </header>
+
+    <section class="kartu" aria-labelledby="judul-form">
+      <h2 id="judul-form">Tambah data suhu</h2>
+      <form id="form-suhu" novalidate>
+        <div class="kolom">
+          <label for="input-ruangan">Nama ruangan</label>
+          <input type="text" id="input-ruangan" maxlength="30" autocomplete="off" placeholder="Contoh: Ruang tamu">
+        </div>
+        <div class="kolom kolom-suhu">
+          <label for="input-suhu">Suhu (°C)</label>
+          <input type="number" id="input-suhu" min="0" max="50" step="0.1" placeholder="0 - 50">
+        </div>
+        <button type="submit" class="tombol tombol-utama">Tambah</button>
+      </form>
+      <p id="pesan" class="pesan" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="kartu" aria-labelledby="judul-statistik">
+      <h2 id="judul-statistik">Statistik suhu</h2>
+      <dl class="statistik">
+        <div><dt>Jumlah ruangan</dt><dd id="stat-jumlah">-</dd></div>
+        <div><dt>Rata-rata</dt><dd id="stat-rata">-</dd></div>
+        <div><dt>Tertinggi</dt><dd id="stat-tertinggi">-</dd></div>
+        <div><dt>Terendah</dt><dd id="stat-terendah">-</dd></div>
+      </dl>
+
+      <h3>Sebaran kategori suhu</h3>
+      <div id="distribusi" class="distribusi"></div>
+    </section>
+
+    <section class="kartu" aria-labelledby="judul-tabel">
+      <div class="kepala-tabel">
+        <h2 id="judul-tabel">Daftar suhu ruangan</h2>
+        <button type="button" id="tombol-hapus" class="tombol tombol-sekunder">Hapus semua</button>
+      </div>
+      <div class="gulir-tabel">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Ruangan</th>
+              <th>Suhu</th>
+              <th>Kategori</th>
+              <th>Saran</th>
+            </tr>
+          </thead>
+          <tbody id="isi-tabel"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
